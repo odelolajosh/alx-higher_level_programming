@@ -27,10 +27,10 @@ void reverse(listint_t **head)
  * Return: 1 if h1 and h2 are shallowly equal
  * otherwise 0
  */
-int compare(listint_t **h1, listint_t **h2)
+int compare(listint_t *h1, listint_t *h2)
 {
-	listint_t *temp1 = *h1;
-	listint_t *temp2 = *h2;
+	listint_t *temp1 = h1;
+	listint_t *temp2 = h2;
 
 	while (temp1 && temp2)
 	{
@@ -59,7 +59,7 @@ int is_palindrome(listint_t **head)
 	int ispalindrome = 1;
 
 	slow = fast = *head;
-
+	mid = NULL;
 	if (*head && (*head)->next)
 	{
 		while (fast && fast->next)
@@ -76,7 +76,7 @@ int is_palindrome(listint_t **head)
 		half = slow;
 		prevslow->next = NULL;
 		reverse(&half);
-		ispalindrome = compare(head, &half);
+		ispalindrome = compare(*head, half);
 
 		reverse(&half);
 		if (mid)

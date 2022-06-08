@@ -10,7 +10,7 @@ def complex_delete(a_dictionary, value):
         Return:
             Modified dictionary
     """
-    keys = list(a_dictionary.keys());
+    keys = list(a_dictionary.keys())
 
     for key in keys:
         if value == a_dictionary.get(key):

@@ -5,3 +5,5 @@
 test/
 x/
 
+# Cache file
+__pycache__/

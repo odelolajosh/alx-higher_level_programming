@@ -12,5 +12,5 @@ def uniq_add(my_list=[]):
     uniq = set(my_list)
     sum = 0;
     for m in uniq:
-        sum += m;
+        sum += m
     return sum

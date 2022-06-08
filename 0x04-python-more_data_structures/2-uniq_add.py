@@ -10,7 +10,7 @@ def uniq_add(my_list=[]):
         the sum of unique list
     """
     uniq = set(my_list)
-    sum = 0;
+    sum = 0
     for m in uniq:
         sum += m
     return sum

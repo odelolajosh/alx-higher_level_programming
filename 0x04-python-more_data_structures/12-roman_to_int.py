@@ -10,7 +10,11 @@ def roman_to_int(roman_string):
         integer equivalent
     """
     result = 0
-    symbols = { 'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000 }
+
+    if type(roman_string) is not str or roman_string is None:
+        return result
+
+    symbols = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     mapped = list(map(lambda x: symbols.get(x), roman_string))
     for i, m in enumerate(mapped):
         if i <= len(mapped) - 2 and m < mapped[i + 1]:

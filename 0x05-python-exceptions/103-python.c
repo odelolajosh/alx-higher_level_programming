@@ -74,6 +74,7 @@ void print_python_list(PyObject *p)
 {
 	long int size, i;
 	PyListObject *list;
+	PyObject *obj;
 
 	fflush(stdout);
 	if (!PyList_Check(p))

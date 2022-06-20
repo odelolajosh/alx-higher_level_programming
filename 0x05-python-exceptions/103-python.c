@@ -44,16 +44,16 @@ void print_python_bytes(PyObject *p)
 
 /**
  * print_python_float - Prints bytes information
- *
  * @p: Python Object
- * Return: no return
  */
 void print_python_float(PyObject *p)
 {
 	double fl;
+	char *sfl;
 
 	fflush(stdout);
 	printf("[.] float object info\n");
+
 	if (!PyFloat_Check(p))
 	{
 		printf("  [ERROR] Invalid Float Object\n");
@@ -62,7 +62,8 @@ void print_python_float(PyObject *p)
 	}
 
 	fl = ((PyFloatObject *)p)->ob_fval;
-	printf("  value: %f\n", fl);
+	sfl = PyOS_double_to_string(val, 'r', 0, Py_DTSF_ADD_DOT_0, Py_DTST_FINITE);
+	printf("  value: %s\n", sfl);
 	fflush(stdout);
 }
 
@@ -77,6 +78,7 @@ void print_python_list(PyObject *p)
 	PyObject *obj;
 
 	fflush(stdout);
+	printf("[*] Python list info\n");
 	if (!PyList_Check(p))
 	{
 		printf("  [ERROR] Invalid List Object\n");

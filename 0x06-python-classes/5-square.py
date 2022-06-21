@@ -41,4 +41,3 @@ class Square:
                 print()
             print('#', end='')
         print()
-            

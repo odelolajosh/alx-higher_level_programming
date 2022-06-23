@@ -1,0 +1,74 @@
+The ``0-add_integer`` module
+=================================
+
+Testing ``add_integer``
+-------------------------
+
+Import function from the module:
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Module should have a doc
+    >>> len(__import__('0-add_integer').__doc__) > 0
+    True
+    >>> len(__import__('0-add_integer').add_integer.__doc__) > 0
+    True
+
+
+Adding two integer
+    >>> add_integer(1, 2)
+    3
+
+
+Adding one positive and one negative
+    >>> add_integer(100, -2)
+    98
+
+
+Using only one arguments
+    >>> add_integer(2.99)
+    100
+
+
+Adding a float and an integer
+    >>> add_integer(100.3, -2)
+    98
+
+
+Adding two float
+    >>> add_integer(0.3, 1.1)
+    1
+
+
+Adding a string and number
+    >>> add_integer("hey", 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+
+Adding two strings
+    >>> add_integer("4", "5")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+
+Adding a tuple
+    >>> add_integer((4, 5))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+
+Adding a complex number and real number
+    >>> add_integer(21, 2 + 3j)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+
+Adding a boolean and real number
+    >>> add_integer(False, 2 + 3j)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer

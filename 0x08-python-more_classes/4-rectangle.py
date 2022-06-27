@@ -26,7 +26,7 @@ class Rectangle:
 
         for i in range(self.height):
             string += ("#" * self.width) + "\n"
-        return string
+        return string[:-1]
 
     def __repr__(self):
         """Return a string representation of the rectangle to be

@@ -1,0 +1,44 @@
+>>> Rectangle = __import__('4-rectangle').Rectangle
+>>> my_rectangle = Rectangle(2, 4)
+
+>>> print("Area: {} - Perimeter: {}".format(my_rectangle.area(), my_rectangle.perimeter()))
+Area: 8 - Perimeter: 12
+
+>>> print(str(my_rectangle))
+##
+##
+##
+##
+
+>>> print(my_rectangle)
+##
+##
+##
+##
+
+>>> print(repr(my_rectangle))
+Rectangle(2, 4)
+
+[*] create new instance based on representation
+>>> new_rectangle = eval(repr(my_rectangle))
+
+>>> print(str(new_rectangle))
+##
+##
+##
+##
+
+>>> print(new_rectangle)
+##
+##
+##
+##
+
+>>> print(repr(new_rectangle))
+Rectangle(2, 4)
+
+>>> print(new_rectangle is my_rectangle)
+False
+
+>>> print(type(new_rectangle) is type(my_rectangle))
+True

@@ -1,73 +1,71 @@
 The ``0-add_integer`` module
-=================================
+==============================
 
-Testing ``add_integer``
--------------------------
+Testing ``add_integer`` function
+---------------------------------
 
-Import function from the module:
+[*] Import function from the module
     >>> add_integer = __import__('0-add_integer').add_integer
 
-Module should have a doc
+[*] Module and function should have a doc
     >>> len(__import__('0-add_integer').__doc__) > 0
     True
     >>> len(__import__('0-add_integer').add_integer.__doc__) > 0
     True
 
-
-Adding two integer
+[*] Function can receive one or two parameters
+- Passing two integer
     >>> add_integer(1, 2)
     3
 
-
-Adding one positive and one negative
+- Passing one positive and one negative
     >>> add_integer(100, -2)
     98
 
-
-Using only one arguments
+- Passing only one arguments: Float should be converted to integer
     >>> add_integer(2.99)
     100
 
-
-Adding a float and an integer
+- Passing a float and an integer: Float should be converted to integer
     >>> add_integer(100.3, -2)
     98
 
-
-Adding two float
+- Passing two float: Float should be converted to integer
     >>> add_integer(0.3, 1.1)
     1
 
+- Passing no arguments
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
 
-Adding a string and number
+[*] Function can only receive integer or a float
+- Passing a string and number
     >>> add_integer("hey", 2)
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
 
-
-Adding two strings
+- Passing two strings
     >>> add_integer("4", "5")
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
 
-
-Adding a tuple
+- Passing a tuple
     >>> add_integer((4, 5))
     Traceback (most recent call last):
         ...
     TypeError: a must be an integer
 
-
-Adding a complex number and real number
+- Passing a complex number and real number
     >>> add_integer(21, 2 + 3j)
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
 
-
-Adding a boolean and real number
+- Passing a boolean and real number
     >>> add_integer(False, 2 + 3j)
     Traceback (most recent call last):
         ...

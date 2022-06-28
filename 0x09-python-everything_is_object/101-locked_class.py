@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Locked Class:
     Attributes can't be dynamically created except 'first_name'
 """

@@ -1,8 +1,26 @@
 >>> Rectangle = __import__('9-rectangle').Rectangle
 
 >>> my_square = Rectangle.square(5)
+>>> print("{} / {}".format(my_square.width, my_square.height))
+5 / 5
 >>> print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
 Area: 25 - Perimeter: 20
+
+>>> try:
+...     my_square = Rectangle.square(-2)
+...     print("{} / {}".format(my_square.width, my_square.height))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] width must be >= 0
+Bye rectangle...
+
+>>> try:
+...     my_square = Rectangle.square("12")
+...     print("{} / {}".format(my_square.width, my_square.height))
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] width must be an integer
+Bye rectangle...
 
 >>> print(my_square)
 #####

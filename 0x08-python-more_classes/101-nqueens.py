@@ -55,7 +55,7 @@ def solveQueen(queens, row):
     if row is N:
         printNQueen(queens)
         return
-    
+
     queens[row] = -1
 
     while queens[row] < N - 1:

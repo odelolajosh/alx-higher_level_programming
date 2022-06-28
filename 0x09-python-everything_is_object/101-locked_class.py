@@ -1,5 +1,5 @@
 """Locked Class:
-    Attributes can't be dynamically created
+    Attributes can't be dynamically created except 'first_name'
 """
 
 

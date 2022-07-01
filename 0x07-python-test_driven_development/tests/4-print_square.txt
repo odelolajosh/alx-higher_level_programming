@@ -58,8 +58,14 @@ Testing ``4-print_square`` function
     ...
     TypeError: size must be an integer
 
- Size can't be a dictionary
+- Size can't be a dictionary
     >>> print_square({ "a": 1, "b": 2 })
     Traceback (most recent call last):
     ...
     TypeError: size must be an integer
+
+- Missing one arguments
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'

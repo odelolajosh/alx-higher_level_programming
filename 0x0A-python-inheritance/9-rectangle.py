@@ -10,7 +10,12 @@ class Rectangle(BaseGeometry):
     """
 
     def __init__(self, width, height):
-        """ Instantiates Rectangle with width and height """
+        """Instantiates Rectangle with width and height
+
+        Args:
+            width (int): The width of the rectangle
+            height (int): The height of the rectangle
+        """
         self.integer_validator("width", width)
         self.integer_validator("heiaght", height)
         self.__width = width

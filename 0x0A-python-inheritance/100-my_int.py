@@ -9,9 +9,9 @@ class MyInt(int):
     """
 
     def __eq__(self, other):
-        """ make == comparison """
-        return super().__eq__(other)
-
-    def __ne__(self, other):
         """ make != comparison """
         return super().__ne__(other)
+
+    def __ne__(self, other):
+        """ make == comparison """
+        return super().__eq__(other)

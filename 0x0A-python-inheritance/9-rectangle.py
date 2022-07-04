@@ -23,4 +23,4 @@ class Rectangle(BaseGeometry):
     def __str__(self):
         """ Returns printable string """
         cls = self.__class__.__name__
-        return "[{}] {}/{}".format(cls, self.__width, self.__height)
+        return "[{}] {:d}/{:d}".format(cls, self.__width, self.__height)

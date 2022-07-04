@@ -29,7 +29,7 @@ Testing ``MyList`` class
 - Passing in one argument
     >>> my_list.print_sorted(2)
     Traceback (most recent call last):
-    File "<stdin>", line 1, in <module>
+        ...
     TypeError: print_sorted() takes 1 positional argument but 2 were given
 
 - Passing in two arguments

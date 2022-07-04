@@ -1,0 +1,93 @@
+The ``7-base_geometry`` module
+=================================
+
+Testing ``BaseGeometry`` class
+-----------------------------------
+
+[*] Import function from the module
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+[*] Module and function should have a doc
+    >>> len(__import__('7-base_geometry').__doc__) > 0
+    True
+    >>> len(BaseGeometry.__doc__) > 0
+    True
+
+[*] Define a `BaseGeometry` object
+    >>> bg = BaseGeometry()
+
+[*] Usage `area` function
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+[*] Usage in `integer_validator` function
+- Passing a boolean for value
+    >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+- Passing a string for value
+    >>> bg.integer_validator("name", "5")
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+- Passing a negative for value
+    >>> bg.integer_validator("name", -1)
+    Traceback (most recent call last):
+        ...
+    ValueError: name must be greater than 0
+
+- Passing zero for value
+    >>> bg.integer_validator("name", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: name must be greater than 0
+
+- Passing a positive value for value
+    >>> bg.integer_validator("name", 5)
+
+- Passing one argument to integer_validator
+    >>> bg.integer_validator("name")
+    Traceback (most recent call last):
+    	...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+- Passing no arguments with Integer_validator
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+- Passing three arguments to integer_validator
+    >>> bg.integer_validator("name", 1, 2)
+    Traceback (most recent call last):
+    	...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+- Passing tuple for value
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+  	    ...
+    TypeError: age must be an integer
+
+- Passing list for value
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    	...
+    TypeError: age must be an integer
+
+- Passing dict for value
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer
+
+- Passing None for value
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be an integer

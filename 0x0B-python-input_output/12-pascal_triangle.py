@@ -29,6 +29,7 @@ def pascal_triangle(n):
         row = []
         prev = [0] + triangle[i - 1] + [0]
 
+        # Sliding Window Algorithm
         runningSum = 0
         for i in range(len(prev)):
             runningSum += prev[i]

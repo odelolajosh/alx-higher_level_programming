@@ -35,7 +35,10 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """ Save object in a json file """
+        """ Save object in a json file
+            Args:
+                list_objs (list): list of `Base` instances
+        """
         filename = "{}.json".format(cls.__name__)
         json_list = []
 

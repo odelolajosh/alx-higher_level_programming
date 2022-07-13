@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Module for Testing Base class """
+import math
 import os
 import unittest
 from models.base import Base
@@ -35,16 +36,44 @@ class TestBaseClass(unittest.TestCase):
         b5 = Base()
         self.assertAlmostEqual(b5.id, 3)
 
+    def test_float_id(self):
+        """ Test float id """
+        b = Base(0.657)
+        self.assertEqual(b.id, 0.657)
+
+    def test_extremes_id(self):
+        """ Test float id """
+        b = Base(float('inf'))
+        self.assertEqual(b.id, float('inf'))
+
+        b = Base(float('Nan'))
+        self.assertTrue(math.isnan(b.id))
+
     def test_str_id(self):
         """ Test string id """
         b = Base("id")
         self.assertEqual(b.id, "id")
 
+    def test_list_id(self):
+        """ Test list id """
+        b = Base([0])
+        self.assertEqual(b.id, [0])
+
+    def test_tuple_id(self):
+        """ Test tuple id """
+        b = Base((1, ))
+        self.assertEqual(b.id, (1, ))
+
+    def test_dict_id(self):
+        """ Test dict id """
+        b = Base({"id": 1})
+        self.assertEqual(b.id, {"id": 1})
+
     def test_with_two_args(self):
         """ Test passing n-args to init method """
         with self.assertRaises(TypeError):
             b = Base(1, 1)
-    
+
     def test_access_private_attrs(self):
         """ Trying to access to a private attribute """
         b = Base(1)
@@ -72,7 +101,7 @@ class TestBaseClass(unittest.TestCase):
         with open(filename, "r") as f:
             actual = f.read()
             self.assertEqual(actual, expected)
-        
+
         Rectangle.save_to_file([])
         with open(filename, "r") as file:
             self.assertEqual(file.read(), "[]")
@@ -103,7 +132,7 @@ class TestBaseClass(unittest.TestCase):
         with open(filename, "r") as f:
             actual = f.read()
             self.assertEqual(actual, expected)
-        
+
         Square.save_to_file([])
         with open(filename, "r") as file:
             self.assertEqual(file.read(), "[]")

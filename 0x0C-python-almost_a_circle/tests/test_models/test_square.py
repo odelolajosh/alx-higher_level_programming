@@ -88,7 +88,7 @@ class TestSquareClass(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             s.width = -1
-        
+
         with self.assertRaises(ValueError):
             s.height = -1
 
@@ -115,7 +115,7 @@ class TestSquareClass(unittest.TestCase):
         s = Square(1)
         with self.assertRaises(TypeError):
             s.size = "Size"
-        
+
         with self.assertRaises(TypeError):
             s.width = "Width"
 
@@ -133,13 +133,13 @@ class TestSquareClass(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             r.height = []
-    
+
     def test_size1(self):
         """ `width` and `height` must be equal to size """
         s = Square(21)
         self.assertEqual(s.size, s.width)
         self.assertEqual(s.size, s.height)
-    
+
     def test_size2(self):
         """ `width` and `height` must be equal to size """
         s = Square(21)

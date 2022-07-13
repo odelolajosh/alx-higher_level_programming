@@ -72,6 +72,10 @@ class TestBaseClass(unittest.TestCase):
         with open(filename, "r") as f:
             actual = f.read()
             self.assertEqual(actual, expected)
+        
+        Rectangle.save_to_file([])
+        with open(filename, "r") as file:
+            self.assertEqual(file.read(), "[]")
 
         try:
             os.remove(filename)
@@ -99,6 +103,10 @@ class TestBaseClass(unittest.TestCase):
         with open(filename, "r") as f:
             actual = f.read()
             self.assertEqual(actual, expected)
+        
+        Square.save_to_file([])
+        with open(filename, "r") as file:
+            self.assertEqual(file.read(), "[]")
 
         try:
             os.remove(filename)

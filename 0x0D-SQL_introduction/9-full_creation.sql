@@ -7,7 +7,5 @@ CREATE TABLE second_table (
 );
 -- perform insertion
 INSERT INTO second_table (id, name, score) VALUES
-    ROW(1, "John", 10),
-    ROW(2, "Alex", 3),
-    ROW(3, "Bob", 14),
-    ROW(4, "George", 8);
+    ROW(1, "John", 10), ROW(2, "Alex", 3),
+    ROW(3, "Bob", 14), ROW(4, "George", 8);

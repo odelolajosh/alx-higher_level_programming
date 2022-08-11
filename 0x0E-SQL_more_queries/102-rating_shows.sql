@@ -2,4 +2,4 @@
 SELECT s.title, MAX(r.rate) AS rating FROM tv_show_ratings r
 JOIN tv_shows s ON s.id = r.show_id
 GROUP BY s.title
-ORDER BY r.rate DESC
+ORDER BY rating DESC

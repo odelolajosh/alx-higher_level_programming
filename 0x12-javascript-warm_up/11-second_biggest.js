@@ -8,7 +8,7 @@ let biggest = 0;
 if (args.length > 1) {
   biggest = Math.max(...args);
   const index = args.indexOf(biggest);
-  args.splice(index);
+  args.splice(index, 1);
   biggest = Math.max(...args);
 }
 

@@ -13,7 +13,7 @@ if __name__ == "__main__":
         print("USAGE: {} user passwd database".format(sys.argv[0]))
         sys.exit(1)
 
-    user, passwd, db, state = sys.argv[1], sys.argv[2]
+    user, passwd = sys.argv[1], sys.argv[2]
     db, state = sys.argv[3], sys.argv[4]
 
     db = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)

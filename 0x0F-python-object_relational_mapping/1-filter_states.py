@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Lists all states with a name starting with N (upper N)
+"""
 import sys
 import MySQLdb
 
@@ -14,7 +17,11 @@ if __name__ == "__main__":
 
     db = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
     cur = db.cursor()
-    query = """SELECT * FROM states WHERE name like 'N%' ORDER BY id ASC"""
+    query = """
+    SELECT * FROM states
+    WHERE name like 'N%'
+    ORDER BY id ASC;
+    """
     cur.execute(query)
     rows = cur.fetchall()
     for row in rows:

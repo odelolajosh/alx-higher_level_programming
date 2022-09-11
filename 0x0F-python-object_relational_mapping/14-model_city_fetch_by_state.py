@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Prints all City objects from the database
+"""
 import sys
 from model_city import City
 from model_state import State

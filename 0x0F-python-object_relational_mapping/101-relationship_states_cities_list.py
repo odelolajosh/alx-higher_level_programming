@@ -7,6 +7,7 @@ import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from relationship_state import State
+from relationship_city import City
 
 host = "localhost"
 
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).order_by("id").all()
+    states = session.query(State).order_by(State.id, City.id).all()
 
     for state in states:
         print("{}: {}".format(state.id, state.name))

@@ -12,10 +12,10 @@ def find_peak(list_of_integers):
 
     if mid - 1 < 0 and mid + 1 >= length:
         return arr[mid]
-    
+
     if mid - 1 < 0:
         return arr[mid] if arr[mid] > arr[mid + 1] else arr[mid + 1]
-    
+
     if mid + 1 >= length:
         return arr[mid] if arr[mid] > arr[mid - 1] else arr[mid - 1]
 

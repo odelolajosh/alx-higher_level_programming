@@ -7,7 +7,7 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    q = sys.argv[0] if len(sys.argv) >= 1 else ""
+    q = sys.argv[1] if len(sys.argv) > 0 else ""
     params = {'q': q}
     r = requests.post("http://0.0.0.0:5000/search_user", params=params)
 

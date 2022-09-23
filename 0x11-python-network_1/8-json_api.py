@@ -8,8 +8,8 @@ import sys
 
 if __name__ == "__main__":
     q = sys.argv[1] if len(sys.argv) > 1 else ""
-    params = {'q': q}
-    r = requests.post("http://0.0.0.0:5000/search_user", params=params)
+    data = {'q': q}
+    r = requests.post("http://0.0.0.0:5000/search_user", data)
 
     try:
         json = r.json()

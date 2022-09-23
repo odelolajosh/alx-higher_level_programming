@@ -9,6 +9,6 @@ import sys
 if __name__ == "__main__":
     try:
         with request.urlopen(sys.argv[1]) as response:
-            print(response.read().encode("utf8"))
+            print(response.read().decode("utf8"))
     except urlerror.HTTPError as e:
         print("Error code: {}".format(e.code))

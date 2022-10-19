@@ -1,30 +1,26 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 const request = require('request');
-const url = 'http://swapi.co/api/films/';
-let id = parseInt(process.argv[2], 10);
-let characters = [];
 
-request(url, function (err, response, body) {
-  if (err == null) {
-    const resp = JSON.parse(body);
-    const results = resp.results;
-    if (id < 4) {
-      id += 3;
-    } else {
-      id -= 3;
+const movieId = process.argv[2];
+const filmUrl = `https://swapi-api.hbtn.io/api/films/${movieId}/`;
+
+function getCharacterByFilm(url) {
+  request(url, function (err, response, body) {
+    if (err) {
+      console.log(err);
+      return;
     }
-    for (let i = 0; i < results.length; i++) {
-      if (results[i].episode_id === id) {
-        characters = results[i].characters;
-        break;
+    body = JSON.parse(body);
+    const characters = body.results;
+    characters.forEach(function (character) {
+      if (character.films.includes(filmUrl)) {
+        console.log(character.name);
       }
+    });
+    if (body.next) {
+      getCharacterByFilm(body.next)
     }
-    for (let j = 0; j < characters.length; j++) {
-      request(characters[j], function (err, response, body) {
-        if (err == null) {
-          console.log(JSON.parse(body).name);
-        }
-      });
-    }
-  }
-});
+  })
+}
+
+getCharacterByFilm('https://swapi-api.hbtn.io/api/people/')

@@ -4,7 +4,7 @@ const request = require('request');
 const movieId = process.argv[2];
 const filmUrl = `https://swapi-api.hbtn.io/api/films/${movieId}/`;
 
-function getCharacterByFilm(url) {
+function getCharacterByFilm (url) {
   request(url, function (err, response, body) {
     if (err) {
       console.log(err);
@@ -18,9 +18,9 @@ function getCharacterByFilm(url) {
       }
     });
     if (body.next) {
-      getCharacterByFilm(body.next)
+      getCharacterByFilm(body.next);
     }
-  })
+  });
 }
 
-getCharacterByFilm('https://swapi-api.hbtn.io/api/people/')
+getCharacterByFilm('https://swapi-api.hbtn.io/api/people/');

@@ -8,7 +8,7 @@ $(document).ready(function () {
     });
   }
   $('input#btn_translate').click(fetchTranslation);
-  $('input#language_code').on('keydown', (e) => {
+  $('input#language_code').keypress((e) => {
     if (e.key === 'Enter') {
       fetchTranslation()
     }
